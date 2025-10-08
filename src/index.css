@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: font1;
+  src: url(../public/fonts/Lausanne-300.woff2);
+}
+@font-face {
+  font-family: font2;
+  src: url(../public/fonts/Lausanne-500.woff2);
+}
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+  }
+
+  .text-stroke-green {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #22c55e; /* Tailwind green-500 */
+  }
+
+  .text-stroke-white {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: white;
+  }
+}
+
+.movex {
+  animation-name: moveAnimation;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear ;
+
+}
+
+/* Hide image initially */
+.moveLink img {
+  opacity: 0;
+  scale: 0;
+  transition: all ease 0.3s;
+}
+.moveLink h2{
+  opacity: 0;
+  scale: 0;
+  transition: all ease 0.3s;
+}
+
+/* Hide .moveLink initially */
+.moveLink {
+  top: 4%;
+  height: 0;
+  opacity: 0;
+  position: absolute; /* Important for top to work */
+  transition: all ease 0.3s;
+}
+
+/* When .link is hovered, show .moveLink */
+.link:hover .moveLink {
+  top: 0%;
+  height: 100%;
+  opacity: 1;
+}
+
+/* And show the image inside it */
+.link:hover .moveLink img {
+  opacity: 1;
+  scale: 100%;
+}
+.link:hover .moveLink h2 {
+  opacity: 1;
+  scale: 100%;
+}
+
+
+
+@keyframes moveAnimation {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
+body{
+background-color: #1e1e1e ;  
+}
