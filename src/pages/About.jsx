@@ -4,7 +4,8 @@ import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from 'gsap'
 import { Education } from '../components/extra/Education';
-
+import SkillsSection from '../components/SkillsSection';
+import ContactSection from '../components/ContactSection';
 
 const About = () => {
 
@@ -13,9 +14,9 @@ const About = () => {
     if (window.innerWidth <= 480) {
     start = "-20% 20%";
     } else if (window.innerWidth <= 1200) {
-    start = "80% 30%";
+    start = "80% 0";
     } else {
-    start = "100% center"; // or another default
+    start = "100% 0"; // or another default
     }
 
 console.log("START VALUE:", start);
@@ -26,27 +27,8 @@ console.log("START VALUE:", start);
    useGSAP(() => {
     const tl3 = gsap.timeline();
     gsap.registerPlugin(ScrollTrigger)
-    
-    const tl4 = gsap.timeline({
-    scrollTrigger: {
-      trigger: triggrStart.current,
-      start: start,
-    // start:"80% 30%",
-      markers: true,
-    }
-    });
-    
-  tl4.from('.descLines', {
-        opacity: 0,
-        x:50,
-        y: -50,
-        duration: 1,
-        stagger: 0.3, 
-        ease: "power2.out",
-        delay:0
-    });
 
-    tl3.from('.about', {
+      tl3.from('.about', {
         y:10,
         height:0,
         opacity: 0,
@@ -63,9 +45,25 @@ console.log("START VALUE:", start);
         ease: "power2.out",
 
     });
+    
+    const tl4 = gsap.timeline({
+    scrollTrigger: {
+      trigger: triggrStart.current,
+      start: start,
+      // markers: true,
+    }
+    });
+    
+  tl4.from('.descLines', {
+        opacity: 0,
+        x:50,
+        y: -50,
+        duration: 1,
+        stagger: 0.3, 
+        ease: "power2.out",
+        delay:0,
 
-
-
+    });
 
     }, []);
 
@@ -73,7 +71,7 @@ console.log("START VALUE:", start);
 
 
   return (
-    <div id="#about" className="bg-black min-h-screen px-4 md:px-0 py-10">
+    <div id="#about" className="bg-black min-h-screen px-0 md:px-0 py-10">
       <div>
         {/* Title */}
         <div>
@@ -138,9 +136,21 @@ console.log("START VALUE:", start);
           </div>
         </div>
       </div>
-      <div>
-        <Education></Education>
-      </div>
+
+      {/* skills section */}
+      <SkillsSection />
+      {/* skills section ends */}
+      
+      {/* education section */}
+       <Education />
+      {/* education section ends */}
+
+      {/* contact section */}
+      <ContactSection></ContactSection>
+
+
+
+
     </div>
   )
 }

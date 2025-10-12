@@ -16,6 +16,7 @@ const Navbar = ({setNavbar}) => {
       <div className='flex flex-col justify-center items-end relative z-10 w-full px-4 gap-0.5 '>
         <div className='h-1 w-20 max-sm:w-5 bg-white'></div>
         <div className='h-1 w-10 bg-white'></div>
+        <div className='h-1 w-5 bg-white'></div>
       </div>
       <div ref={navGreenRef} className='h-0 w-full absolute top-0 bg-[#D3fd50] transition-all duration-300 ease-in-out   '>
         
