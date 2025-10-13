@@ -49,11 +49,11 @@ const Stair = (props) => {
     <div className='overflow-hidden'>
         <div ref={stairParentRef} className='h-screen w-full fixed z-20 top-0'>
             <div className='h-screen w-full flex'>
-            <div className=' stair h-full w-1/5 bg-white '></div>
-            <div className=' stair h-full w-1/5 bg-white '></div>
-            <div className=' stair h-full w-1/5 bg-white '></div>
-            <div className=' stair h-full w-1/5 bg-white '></div>
-            <div className=' stair h-full w-1/5 bg-white '></div>
+            <div className=' stair h-full w-1/5 bg-black '></div>
+            <div className=' stair h-full w-1/5 bg-black '></div>
+            <div className=' stair h-full w-1/5 bg-black '></div>
+            <div className=' stair h-full w-1/5 bg-black '></div>
+            <div className=' stair h-full w-1/5 bg-black '></div>
             </div>
         </div>
         <div ref={pageRef}>

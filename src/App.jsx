@@ -1,15 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
 import { Route , Routes } from 'react-router-dom'
 import Navbar from './components/Navigation/Navbar'
 import Home from './pages/Home'
 import FullScreenNav from './components/Navigation/FullScreenNav'
 import About from './pages/About'
 import Projects from './pages/Projects'
-import React, { useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
-import "./index.css"; 
+import Lenis from "@studio-freight/lenis"; 
 
 // import './App.css'
 

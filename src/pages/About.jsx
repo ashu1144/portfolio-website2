@@ -4,8 +4,8 @@ import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from 'gsap'
 import { Education } from '../components/extra/Education';
-import SkillsSection from '../components/SkillsSection';
-import ContactSection from '../components/ContactSection';
+import Skills from '../components/Skills/Skills';
+import ContactSection from '../components/AboutUs/ContactSection';
 
 const About = () => {
 
@@ -138,7 +138,7 @@ console.log("START VALUE:", start);
       </div>
 
       {/* skills section */}
-      <SkillsSection />
+      <Skills />
       {/* skills section ends */}
       
       {/* education section */}

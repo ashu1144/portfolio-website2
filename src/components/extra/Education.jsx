@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { education } from "../../constants";
 
 export const Education = () => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1280);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => setIsDesktop(window.innerWidth > 1280);
@@ -15,105 +16,89 @@ export const Education = () => {
   return (
     <section
       id="education"
-      className="py-24 pb-24 px-[12vw] md:px-[7vw] lg:px-[16vw] font-sans bg-gradient-to-b from-gray-900 via-gray-800 to-black clip-path-custom-3 rounded-[80px]"
+      className="relative py-24 px-[8vw] font-serif text-white overflow-hidden min-h-screen"
     >
-      {/* Title */}
-      <div className="text-center mb-16 lg:mt-20">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-wide">
-          EDUCATION
-        </h2>
-        <div className="w-32 h-1 bg-purple-500 mx-auto mt-4 rounded-full"></div>
-        <p className="text-gray-400 mt-4 text-lg md:text-xl font-medium max-w-2xl mx-auto">
-          My education has been a journey of learning and development. Here are
-          the details of my academic background.
-        </p>
-      </div>
+      {/* Background Video */}
+      <video
+        ref={videoRef}
+        src="/videos/education-bg.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-40"
+      />
 
-      {/* Timeline */}
-      <div className="relative">
-        {/* Timeline line */}
-        <div className="absolute xl:left-1/2 left-0 transform -translate-x-1/2 sm:-translate-x-0 w-1 bg-gradient-to-b from-purple-500 to-purple-900 h-full"></div>
+      {/* Gradient Overlay */}
+      <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-b from-transparent via-black/70 to-black"></div>
 
-        {education.map((edu, index) => {
-          const controls = useAnimation();
-          const [ref, inView] = useInView({
-            threshold: 0.3,
-            triggerOnce: false,
-          });
+      {/* Content */}
+      <div className="relative max-w-6xl mx-auto flex flex-col xl:flex-row items-start gap-12 z-10">
+        {/* Left side - content */}
+        <div className="flex-1 order-2 xl:order-1">
+          <h2 className="text-5xl font-bold uppercase tracking-wide mb-8 leading-tight">
+            Education
+          </h2>
+          <p className="text-lg leading-relaxed max-w-xl mb-8 text-gray-300">
+            Obsessed with building fast, intuitive apps — from pixel-perfect React UIs
+            to bulletproof backend systems.
+            <br />
+            Every line of code is a promise of quality users can feel.
+          </p>
 
-          const initialX = isDesktop ? [150, -150] : [0, 0];
-
-          useEffect(() => {
-            if (inView) {
-              controls.start({ opacity: 1, x: 0 });
-            } else {
-              controls.start({
-                opacity: 1,
-                x: index % 2 === 0 ? initialX[0] : initialX[1],
+          {/* Timeline */}
+          <div className="relative pl-8 border-l-2 border-white/30">
+            {education.map((edu, index) => {
+              const controls = useAnimation();
+              const [ref, inView] = useInView({
+                threshold: 0.3,
+                triggerOnce: false,
               });
-            }
-          }, [inView, controls]);
 
-          return (
-            <div
-              key={edu.id}
-              className={`flex flex-col sm:flex-row items-center mb-16 ${
-                index % 2 === 0 ? "sm:justify-start" : "sm:justify-end"
-              }`}
-            >
-              {/* Timeline Dot */}
-              <div className="absolute xl:left-[33.8vw] left-0 transform -translate-x-1/2 bg-gradient-to-br from-purple-500 to-blue-500 border-4 border-gray-800 w-14 h-14 xl:w-16 xl:h-16 rounded-full flex justify-center items-center z-10 shadow-lg">
-                <img
-                  src={edu.img}
-                  alt={edu.school}
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </div>
+              const initialX = isDesktop ? [150, -150] : [0, 0];
 
-              {/* Education Card */}
-              <motion.div
-                ref={ref}
-                animate={controls}
-                transition={{
-                  ease: [0, 0.55, 0.45, 1],
-                  duration: 0.3,
-                }}
-                className={`w-full mt-10 xl:max-w-md p-1 sm:p-0 rounded-3xl ${
-                  index % 2 === 0 ? "xl:ml-[-6vw]" : "xl:mr-[-6vw]"
-                } xl:ml-45 xl:mr-44 ml-8 transform transition-transform duration-300 hover:scale-105`}
-              >
-                <div className="card bg-gradient-to-tr from-gray-800 via-gray-900 to-gray-950 rounded-3xl shadow-2xl border border-purple-700 overflow-hidden text-white">
-                  <div className="content py-8 px-6 md:py-10 md:px-8">
-                    
-                    {/* School Info */}
-                    <div className="flex gap-5 items-center mb-5">
-                      <div className="w-[70px] h-[70px] flex-shrink-0 rounded-lg overflow-hidden border-2 border-purple-500 shadow-lg">
-                        <img
-                          src={edu.img}
-                          alt={edu.school}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div>
-                        <h1 className="text-lg md:text-xl font-extrabold capitalize drop-shadow-lg">
-                          {edu.school}
-                        </h1>
-                        <p className="text-sm font-semibold text-purple-400 mt-1">
-                          Grade: {edu.grade}
-                        </p>
-                      </div>
-                    </div>
+              useEffect(() => {
+                if (inView) {
+                  controls.start({ opacity: 1, x: 0 });
+                } else {
+                  controls.start({
+                    opacity: 0,
+                    x: index % 2 === 0 ? initialX[0] : initialX[1],
+                  });
+                }
+              }, [inView, controls]);
 
-                    {/* Description */}
-                    <p className="text-sm md:text-base text-purple-200 leading-relaxed drop-shadow-md">
-                      {edu.desc}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          );
-        })}
+              return (
+                <motion.div
+                  key={edu.id}
+                  ref={ref}
+                  animate={controls}
+                  transition={{
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    duration: 0.5,
+                  }}
+                  className="mb-14 relative pl-8"
+                >
+                  <div className="absolute left-0 top-2 w-5 h-5 rounded-full bg-white border-2 border-black shadow-sm" />
+                  <h3 className="text-2xl font-semibold mb-1">{edu.school}</h3>
+                  <p className="italic text-gray-400 mb-2">Grade: {edu.grade}</p>
+                  <p className="text-base text-white/90">{edu.desc}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Right side - Full height video */}
+        <div className="flex-shrink-0 order-1 xl:order-2 w-full xl:w-[30vw] h-[80vh] xl:h-[100vh] mt-15">
+          <video
+            src="/profileVideo.mp4"
+            autoPlay
+            loop
+            muted
+            className="w-full h-full object-cover rounded-2xl shadow-lg"
+          ></video>
+        </div>
       </div>
     </section>
   );
