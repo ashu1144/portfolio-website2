@@ -7,23 +7,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   useEffect(() => {
-    const matches = document.querySelectorAll('.textRev')
+    const matches = document.querySelectorAll(".textRev");
 
-    matches.forEach((target)=>{
-        gsap.to(target, {
+    matches.forEach((target) => {
+      gsap.to(target, {
         backgroundPositionX: "0%",
         stagger: 0.5,
         scrollTrigger: {
-        trigger: target,
-        start: "top 20%",
-        end: "bottom 10%",
-        scrub: true,
-        // markers:true,
-      },
+          trigger: target,
+          start: "top 20%",
+          end: "bottom 10%",
+          scrub: true,
+          // markers: true,
+        },
+      });
     });
-
-    })
-
   }, []);
 
   return (
@@ -31,7 +29,7 @@ function App() {
       <Container className="main">
         <Section>Scroll Up</Section>
         <Text>
-          <p className="textRev" > I'm a Junior Full Stack Developer</p>
+          <p className="textRev">I'm a Junior Full Stack Developer</p>
           <p className="textRev">and a recent graduate of the</p>
           <p className="textRev">Software Program.</p>
 
@@ -47,7 +45,6 @@ function App() {
           <p className="textRev">UI/UX into native mobile applications</p>
           <p className="textRev">using React Native.</p>
         </Text>
-
         <Section>Scroll Up</Section>
       </Container>
     </AppContainer>
@@ -80,6 +77,10 @@ const Section = styled.section`
   font-size: 30px;
   font-weight: 600;
   color: #fff;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const Text = styled.div`
@@ -97,6 +98,36 @@ const Text = styled.div`
     margin-left: 50px;
     margin-top: 20px;
     margin-bottom: 20px;
-    user-select:none;
+    user-select: none;
+    line-height: 1.1;
+  }
+
+  /* Tablet */
+  @media (max-width: 1024px) {
+    font-size: 50px;
+
+    p {
+      margin-left: 30px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    font-size: 36px;
+
+    p {
+      margin-left: 20px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+  }
+
+  /* Small Mobile */
+  @media (max-width: 480px) {
+    font-size: 28px;
+
+    p {
+      margin-left: 15px;
+    }
   }
 `;
