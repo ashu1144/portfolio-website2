@@ -2,21 +2,20 @@ import React from 'react';
 import { SkillsInfo as skills } from '../../constants';
 
 const Skills = () => {
-
   return (
-    <section className="bg-black min-h-screen px-4 md:px-0 py-20">
+    <section className="min-h-screen px-4 md:px-0 py-20 bg-[#fdf6e3] text-[#111]">
       <div className="max-w-7xl mx-auto">
         {/* Title Section */}
         <div className="mb-12">
-          <h1 className="text-[10vw] max-sm:text-[15vw] font-[font2] leading-[10vw] px-5 max-sm:px-2 capitalize text-white mb-4">
+          <h1 className="text-[10vw] max-sm:text-[15vw] font-[font2] leading-[10vw] px-5 max-sm:px-2 capitalize text-[#111] mb-4">
             skills
           </h1>
-          <div className="w-full h-1 bg-white mb-8"></div>
+          <div className="w-full h-1 bg-[#111] mb-8"></div>
           <div className="text-end py-4 px-4 max-sm:py-2">
-            <h2 className="text-[3vw] max-sm:text-[4vw] font-[font2] leading-[3vw] max-sm:leading-[4vw] text-white">
+            <h2 className="text-[3vw] max-sm:text-[4vw] font-[font2] leading-[3vw] max-sm:leading-[4vw] text-[#333]">
               TECHNOLOGIES I WORK WITH
             </h2>
-            <h2 className="text-[3vw] max-sm:text-[4vw] font-[font2] leading-[3vw] max-sm:leading-[4vw] text-white">
+            <h2 className="text-[3vw] max-sm:text-[4vw] font-[font2] leading-[3vw] max-sm:leading-[4vw] text-[#333]">
               TOOLS THAT POWER MY CODE
             </h2>
           </div>
@@ -27,10 +26,10 @@ const Skills = () => {
           {skills.map((skillCategory, index) => (
             <div
               key={index}
-              className="group bg-zinc-900 border border-zinc-800 rounded-lg p-6 hover:border-white transition-all duration-300 cursor-pointer"
+              className="group bg-[#111] border border-zinc-800 rounded-lg p-6 hover:border-white transition-all duration-300 cursor-pointer"
             >
               {/* Category Header */}
-              <div className="flex justify-between items-center mb-4 pb-4 border-b border-zinc-800">
+              <div className="flex justify-between items-center mb-4 pb-4 border-b border-zinc-700">
                 <h3 className="text-xl font-[font2] text-white uppercase tracking-wider">
                   {skillCategory.title}
                 </h3>
@@ -40,7 +39,7 @@ const Skills = () => {
                   </span>
                 </div>
               </div>
-              
+
               {/* Technologies Drawer */}
               <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-96 group-hover:opacity-100 transition-all duration-500 ease-out">
                 <div className="space-y-3 pt-2">
@@ -50,8 +49,8 @@ const Skills = () => {
                       className="flex items-center gap-4 p-3 rounded-md bg-black/50 border border-zinc-800 hover:border-zinc-600 hover:bg-zinc-800/50 transition-all duration-300 group/tech"
                     >
                       <div className="w-10 h-10 flex items-center justify-center p-2 bg-white rounded-md group-hover/tech:scale-110 transition-transform duration-300">
-                        <img 
-                          src={tech.logo} 
+                        <img
+                          src={tech.logo}
                           alt={tech.name}
                           className="w-full h-full object-contain"
                         />
@@ -82,7 +81,7 @@ const Skills = () => {
 
         {/* Bottom Terminal-like Section */}
         <div className="mt-16 px-5">
-          <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+          <div className="bg-[#111] border border-zinc-800 rounded-lg p-6">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-3 h-3 bg-red-500 rounded-full"></div>
               <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
@@ -94,12 +93,14 @@ const Skills = () => {
               <div className="ml-4 text-white">Full-Stack Developer</div>
               <div className="text-green-400 mt-2">$ skills --list</div>
               <div className="ml-4 text-zinc-400">
-                Frontend: HTML, CSS, JavaScript, React JS, Next JS, Tailwind CSS<br/>
-                Backend: Node JS, Express JS, MongoDB, MySQL, PostgreSQL<br/>
+                Frontend: HTML, CSS, JavaScript, React JS, Next JS, Tailwind CSS<br />
+                Backend: Node JS, Express JS, MongoDB, MySQL, PostgreSQL<br />
                 Languages: JavaScript, Python, Java, C, C++, C#
               </div>
               <div className="text-green-400 mt-2">$ status</div>
-              <div className="ml-4 text-white">Ready to build amazing things <span className="animate-pulse">|</span></div>
+              <div className="ml-4 text-white">
+                Ready to build amazing things <span className="animate-pulse">|</span>
+              </div>
             </div>
           </div>
         </div>

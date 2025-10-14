@@ -16,7 +16,7 @@ export const Education = () => {
   return (
     <section
       id="education"
-      className="relative py-24 px-[8vw] font-serif text-white overflow-hidden min-h-screen"
+      className="relative py-24 px-[8vw] font-serif text-white bg-[#111] overflow-hidden min-h-screen"
     >
       {/* Background Video */}
       <video

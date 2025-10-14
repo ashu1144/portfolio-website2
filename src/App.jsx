@@ -6,7 +6,7 @@ import FullScreenNav from './components/Navigation/FullScreenNav'
 import About from './pages/About'
 import Projects from './pages/Projects'
 import Lenis from "@studio-freight/lenis"; 
-
+// import TextReveal from './components/common/TextReveal'
 // import './App.css'
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
         <Route path='/about' element={<About setNavbar={setNavbar} ></About>} ></Route>
         <Route path='/projects' element={<Projects></Projects>}></Route>
       </Routes>
-  
+
 
 
       
