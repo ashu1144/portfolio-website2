@@ -3,7 +3,7 @@ import myimg from '../../assets/myImg.jpg'
 
 const Hero = () => {
   return (
-         <section className="bg-[#111]">
+         <section className="bg-[#111] pt-5">
         {/* Title */}
         <h1 className="about text-[10vw] max-sm:text-[15vw] font-[font2] leading-[10vw] px-5 max-sm:px-2 capitalize text-white">
           about
