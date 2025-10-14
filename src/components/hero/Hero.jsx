@@ -1,11 +1,36 @@
 import React from 'react'
 import myimg from '../../assets/myImg.jpg'
+import { useGSAP } from "@gsap/react";  // <-- import like this
+import { gsap } from "gsap";
+
 
 const Hero = () => {
+
+ useGSAP(() => {
+  const tl = gsap.timeline();
+
+  tl.from('.about', {
+    y:20,
+    duration: 0.2,      
+    ease: "power2.inOut",  
+    delay: 1.6,
+  })
+  .from('.desc1', {
+    x:100,
+    opacity:0,
+    ease: "power2.inOut",
+    stagger:0.5
+  },);  
+
+  return () => tl.kill();
+}, []);
+
+
+
   return (
-         <section className="bg-[#111] pt-5">
+         <section className="bg-[#111]">
         {/* Title */}
-        <h1 className="about text-[10vw] max-sm:text-[15vw] font-[font2] leading-[10vw] px-5 max-sm:px-2 capitalize text-white">
+        <h1 className="about overflow-hidden text-[10vw] max-sm:text-[15vw] pt-5 font-[font2] leading-[10vw] px-5 max-sm:px-2 capitalize text-white translate-y-0 ease-in-out duration-300">
           about
         </h1>
 
@@ -13,14 +38,14 @@ const Hero = () => {
         <div className="w-full h-1 bg-white my-4"></div>
 
         {/* Subheadings */}
-        <div className="desc1 text-end py-4 px-4 max-sm:py-2">
-          <h1 className="text-[3vw] max-sm:text-[4vw] font-[font2] leading-tight text-white">
+        <div className="text-end py-4 px-4 max-sm:py-2 overflow-hidden">
+          <h1 className=" desc1 text-[3vw] max-sm:text-[4vw] font-[font2] leading-tight text-white">
             I WRITE ROBUST, TESTABLE CODE
           </h1>
-          <h1 className="text-[3vw] max-sm:text-[4vw] font-[font2] leading-tight text-white">
+          <h1 className="desc1 text-[3vw] max-sm:text-[4vw] font-[font2] leading-tight text-white">
             BUILD FAST, RELIABLE SYSTEMS
           </h1>
-          <h1 className="text-[3vw] max-sm:text-[4vw] font-[font2] leading-tight text-white">
+          <h1 className="desc1 text-[3vw] max-sm:text-[4vw] font-[font2] leading-tight text-white">
             SHIP SCALABLE, CLEAN SOLUTIONS
           </h1>
         </div>
