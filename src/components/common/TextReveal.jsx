@@ -12,11 +12,11 @@ function App() {
     matches.forEach((target) => {
       gsap.to(target, {
         backgroundPositionX: "0%",
-        stagger: 0.5,
+        stagger: 0.1,
         scrollTrigger: {
           trigger: target,
-          start: "top 20%",
-          end: "bottom 10%",
+          start: "top 10%",
+          end: "bottom top",
           scrub: true,
           // markers: true,
         },
@@ -29,22 +29,25 @@ function App() {
       <Container className="main">
         <Section>Scroll Up</Section>
         <Text>
-          <p className="textRev">I'm a Junior Full Stack Developer</p>
-          <p className="textRev">and a recent graduate of the</p>
-          <p className="textRev">Software Program.</p>
+            <p className="textRev">I craft full-stack experiences</p>
+            <p className="textRev">that blend design with logic.</p>
 
-          <p className="textRev">I create projects under the notion</p>
-          <p className="textRev">that “less is more” and my work</p>
-          <p className="textRev">reflects my addiction for minimal</p>
-          <p className="textRev">and clean design as well as my</p>
-          <p className="textRev">desire to push boundaries.</p>
+            <p className="textRev">With React, I bring ideas</p>
+            <p className="textRev">to life through fast, fluid</p>
+            <p className="textRev">and responsive interfaces.</p>
 
-          <p className="textRev">I am currently learning Redux and</p>
-          <p className="textRev">JS to further my front-end</p>
-          <p className="textRev">focus while developing my concepts on</p>
-          <p className="textRev">UI/UX into native mobile applications</p>
-          <p className="textRev">using React Native.</p>
-        </Text>
+            <p className="textRev">Behind the scenes, Node.js</p>
+            <p className="textRev">and Express power my servers</p>
+            <p className="textRev">with clean and scalable APIs.</p>
+
+            <p className="textRev">I use MongoDB when flexibility</p>
+            <p className="textRev">matters, and MySQL when structure</p>
+            <p className="textRev">and relations take the lead.</p>
+
+            <p className="textRev">Together, they form the core</p>
+            <p className="textRev">of my development toolkit.</p>
+          </Text>
+
         <Section>Scroll Up</Section>
       </Container>
     </AppContainer>
@@ -70,7 +73,7 @@ const Container = styled.div`
 `;
 
 const Section = styled.section`
-  min-height: 10vh;
+  min-height: 5vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,7 +87,7 @@ const Section = styled.section`
 `;
 
 const Text = styled.div`
-  font-size: 80px;
+  font-size: 70px;
   font-weight: 600;
   padding: 70px 0;
 
@@ -124,7 +127,7 @@ const Text = styled.div`
 
   /* Small Mobile */
   @media (max-width: 480px) {
-    font-size: 28px;
+    font-size: 25px;
 
     p {
       margin-left: 15px;
