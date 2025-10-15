@@ -17,8 +17,8 @@ if (window.innerWidth <= 768) {
   endPos = "bottom -50";
 } else {
   // 💻 Tablet / Laptop
-  startPos = "top center";
-  endPos = "bottom 40%";
+  startPos = "bottom 40%";
+  endPos = "bottom 10%";
 }
 
 
@@ -29,7 +29,7 @@ if (window.innerWidth <= 768) {
     matches.forEach((target) => {
       gsap.to(target, {
         backgroundPositionX: "0%",
-        stagger: 0.5,
+        stagger: 0.8,
         scrollTrigger: {
           trigger: target,
           start: startPos,
