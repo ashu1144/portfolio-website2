@@ -6,6 +6,7 @@ import ContactSection from '../components/AboutUs/ContactSection'
 import MoveSlider from '../components/common/MoveSlider'
 import TextReveal from '../components/common/TextReveal'
 import Hero from '../components/hero/Hero'
+import Projects from './Projects'
 const About = () => {
   return (
     <div id="about" className="">
@@ -28,6 +29,8 @@ const About = () => {
 
       {/* ======= Education Section ======= */}
       <Education />
+
+      <Projects></Projects>
 
       {/* ======= Move Slider 2 ======= */}
       <MoveSlider

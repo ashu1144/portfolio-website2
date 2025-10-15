@@ -3,41 +3,70 @@ import ProjectCar from '../components/projectCard/ProjectCar'
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger';
+
+import agency from "../assets/projet_imgs/Agency_web.png"
+import aiChat from '../assets/projet_imgs/aiChat.png'
+import animationWeb from "../assets/projet_imgs/Animation-website.png"
+import blinkit from "../assets/projet_imgs/Blinkit.jpeg"
+import travel from "../assets/projet_imgs/travel.png"
+import ecomerce from '../assets/projet_imgs/ecomerce.png'
+import portfolio from '../assets/projet_imgs/portfolio.png'
+
+
 const Projects = () => {
-    
-    const arrImg = [
+
+  const projectsArray = [
   {
-    img1: "https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_1280x960.jpg?w=1280&h=960&s=b5151821a8c0d9603263d7ec827bee9b",
-    img2: "https://k72.ca/images/caseStudies/WIDESCAPE/WS---K72.ca---Thumbnail.jpg?w=1280&h=960&s=650a04dfc31ad85bfc64c0ddccc83f1e"
+    title1: "ChatBot",
+    img1:aiChat,
+    link1:"https://my-api-chatbot.vercel.app/",
+    title2: "Travel Agency",
+    img2:travel,
+    link2:"https://ashu1144.github.io/Travel-agency-gsap-framer-/",
   },
   {
-    img1: "https://k72.ca/images/teamMembers/PLP_640x280.jpg?w=640&h=290&s=e675a180832a690a53a22b25ea7fa365",
-    img2: "https://k72.ca/images/blog/blogImg/50ff59cc0550df5b36543807a58db98c52e01a22274a317eafbfa5266941579b.png?w=640&h=290&s=4f8134f04fe18db7382b99cec63c95f5"
+    title1: "Agency Material UI Website",
+    img1: agency,
+    link1:"https://agency-website-kappa.vercel.app/",
+    title2: "Furniture E-commerce",
+    img2: ecomerce,
+    link2:"https://ashu1144.github.io/Furniture-shop/"
   },
   {
-    img1: "https://k72.ca/images/caseStudies/WIDESCAPE/WS---K72.ca---MenuThumbnail.jpg?w=640&h=290&s=c3eae0b44f029a1f39a666ffa3c2ca99",
-    img2: "https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_1280x960.jpg?w=1280&h=960&s=b5151821a8c0d9603263d7ec827bee9b" // repeat
+    title1: "Social Media",
+    img1: ecomerce,
+    link1:"",
+    title2: "Animation Website",
+    img2: animationWeb,
+    link2:"https://ashu1144.github.io/Animation-website/"
   },
   {
-    img1: "https://k72.ca/images/caseStudies/WIDESCAPE/WS---K72.ca---Thumbnail.jpg?w=1280&h=960&s=650a04dfc31ad85bfc64c0ddccc83f1e", // repeat
-    img2: "https://k72.ca/images/teamMembers/PLP_640x280.jpg?w=640&h=290&s=e675a180832a690a53a22b25ea7fa365" // repeat
+    title1: "Blinkit Web Clone",
+    img1: blinkit,
+    link1:"https://ashu1144.github.io/blinkit_clone/",
+    title2: "Portfilio",
+    img2:portfolio,
+    link2:""
   },
-  {
-    img1: "https://k72.ca/images/blog/blogImg/50ff59cc0550df5b36543807a58db98c52e01a22274a317eafbfa5266941579b.png?w=640&h=290&s=4f8134f04fe18db7382b99cec63c95f5", // repeat
-    img2: "https://k72.ca/images/caseStudies/WIDESCAPE/WS---K72.ca---MenuThumbnail.jpg?w=640&h=290&s=c3eae0b44f029a1f39a666ffa3c2ca99" // repeat
-  }
 ];
+
+
+
+
+
+
+    
 
     gsap.registerPlugin(ScrollTrigger)
     useGSAP(()=>{
         gsap.from('.hero',{
             height:"50px",
             stagger:{
-                amount:0.4
+                amount:0.2
             },
             scrollTrigger:{
                 trigger:'.lol',
-                start:"top 95%",
+                start:"top 130%",
                 end:"top -150%",
                 scrub:true,
                 // markers:true
@@ -49,13 +78,13 @@ const Projects = () => {
 
 
   return (
-    <div className='lg:p-4 p-2 mb-[100vh] bg-amber-50 text-black'>
-        <div className='pt-[45vh]'>
-            <h2 className='font-[font2] lg:text-[9.5vw] text-7xl uppercase'>projects</h2>
+    <div className='lg:p-4 p-2 bg-[#fdf6e3] text-black '>
+        <div className='pt-[20vh]'>
+            <h2 className='font-[font2] lg:text-[9.5vw] text-7xl uppercase lol'>projects</h2>
         </div>
-        <div className='lg:-mt-5 lol' >
-            {arrImg.map((el,idx)=>(
-            <div key={idx} className='hero w-full lg:h-[300px] h-[300px] flex lg:flex-row flex-col gap-2 mb-4'><ProjectCar img1={el.img1} img2={el.img2} /></div>
+        <div className='lg:-mt-5' >
+            {projectsArray.map((el,idx)=>(
+            <div key={idx} className='hero w-full lg:h-[300px] h-[300px] flex lg:flex-row flex-col gap-2 mb-4'><ProjectCar img1={el.img1} img2={el.img2} title1={el.title1}  title2={el.title2} link1={el.link1} link2={el.link2} /></div>
         ))}
         </div>
     </div>

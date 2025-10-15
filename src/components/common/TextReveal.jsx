@@ -6,17 +6,34 @@ import styled from "styled-components";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+//  start: "top center",
+  //         end: "bottom 40%",
+
+let startPos, endPos;
+
+if (window.innerWidth <= 768) {
+  // 📱 Mobile
+  startPos = "top top";
+  endPos = "bottom -50";
+} else {
+  // 💻 Tablet / Laptop
+  startPos = "top center";
+  endPos = "bottom 40%";
+}
+
+
+
   useEffect(() => {
     const matches = document.querySelectorAll(".textRev");
 
     matches.forEach((target) => {
       gsap.to(target, {
         backgroundPositionX: "0%",
-        stagger: 0.1,
+        stagger: 0.5,
         scrollTrigger: {
           trigger: target,
-          start: "top 10%",
-          end: "bottom top",
+          start: startPos,
+          end: endPos,
           scrub: true,
           // markers: true,
         },
