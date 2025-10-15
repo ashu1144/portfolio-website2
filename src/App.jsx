@@ -37,8 +37,8 @@ function App() {
       </div>
       <Navbar setNavbar={setNavbar} navbar={navbar} ></Navbar>
       <Routes>
-        <Route path='/' element={<Home setNavbar={setNavbar} ></Home>} ></Route>
-        <Route path='/about' element={<About setNavbar={setNavbar} ></About>} ></Route>
+        <Route path='/about' element={<Home setNavbar={setNavbar} ></Home>} ></Route>
+        <Route path='/' element={<About setNavbar={setNavbar} ></About>} ></Route>
         <Route path='/projects' element={<Projects></Projects>}></Route>
       </Routes>
 
