@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiMail, FiMapPin, FiSend } from 'react-icons/fi';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const ContactSection = () => {
   return (
@@ -28,7 +29,7 @@ const ContactSection = () => {
               <h3 className="text-xl font-[font2] text-white uppercase tracking-wider mb-6 border-b border-zinc-800 pb-4">
                 Get In Touch
               </h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-center gap-4 p-4 bg-black/50 border border-zinc-800 rounded-md hover:border-zinc-600 transition-colors duration-300">
                   <div className="w-10 h-10 bg-white rounded-md flex items-center justify-center">
@@ -39,7 +40,7 @@ const ContactSection = () => {
                     <div className="text-white font-medium">yourmail@example.com</div>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-4 p-4 bg-black/50 border border-zinc-800 rounded-md hover:border-zinc-600 transition-colors duration-300">
                   <div className="w-10 h-10 bg-white rounded-md flex items-center justify-center">
                     <FiMapPin className="text-black text-lg" />
@@ -72,7 +73,7 @@ const ContactSection = () => {
             <h3 className="text-xl font-[font2] text-white uppercase tracking-wider mb-6 border-b border-zinc-800 pb-4">
               Send Message
             </h3>
-            
+
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
@@ -131,6 +132,26 @@ const ContactSection = () => {
               <div className="ml-4 text-zinc-400">Ready to collaborate on your next project</div>
               <div className="text-green-400 mt-2">$ echo "Let's build something amazing"</div>
               <div className="ml-4 text-white">Let's build something amazing <span className="animate-pulse">|</span></div>
+
+              {/* Social Icons */}
+              <div className="mt-4 flex gap-5">
+                <a
+                  href="https://github.com/ashu1144"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-green-400 text-xl transition-colors scale-150"
+                >
+                  <FaGithub />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/shaik-mohammad-ashan-b7a864322/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-blue-500 text-xl transition-colors scale-150"
+                >
+                  <FaLinkedin />
+                </a>
+              </div>
             </div>
           </div>
         </div>

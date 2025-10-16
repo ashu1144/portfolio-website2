@@ -2,7 +2,7 @@ import React from 'react'
 import myimg from '../../assets/myImg.jpg'
 import { useGSAP } from "@gsap/react";  // <-- import like this
 import { gsap } from "gsap";
-
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Hero = () => {
 
@@ -45,8 +45,14 @@ const Hero = () => {
           <h1 className="desc1 text-[3vw] max-sm:text-[4vw] font-[font2] leading-tight text-white">
             BUILD FAST, RELIABLE SYSTEMS
           </h1>
-          <h1 className="desc1 text-[3vw] max-sm:text-[4vw] font-[font2] leading-tight text-white">
-            SHIP SCALABLE, CLEAN SOLUTIONS
+          <h1 className="desc1 float-end flex items-center gap-1 sm:gap-4 text-[3vw] max-sm:text-[4vw] font-[font2] leading-tight text-white">
+              LET'S CONNECT
+              <a href="https://github.com/ashu1144" target="_blank" rel="noopener noreferrer" className="text-white  scale-180 mr-1 hover:text-green-400  text-xl transition-colors  max-sm:scale-100 max-sm:mr-0">
+                <FaGithub />
+              </a>
+              <a href="https://www.linkedin.com/in/shaik-mohammad-ashan-b7a864322/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-500 text-xl scale-180 transition-colors max-sm:scale-100 max-sm:mr-0">
+                <FaLinkedin />
+              </a>
           </h1>
         </div>
 
