@@ -1,8 +1,32 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import emailjs from "@emailjs/browser";
 import { FiMail, FiMapPin, FiSend } from 'react-icons/fi';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const ContactSection = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_w0akbq2",
+        "template_q1f1i4q",
+        form.current,
+        "Du2yYba9Zj2OKSKD0"
+      )
+      .then(
+        () => {
+          form.current.reset();
+          alert("Message sent successfully! ✅");
+        },
+        (error) => {
+          console.error("Error sending message:", error);
+          alert("Failed to send message. Please try again.");
+        }
+      );
+  };
   return (
     <section className="bg-black min-h-screen text-white py-20 px-4">
       <div className="max-w-[90vw] m-auto">
@@ -74,13 +98,15 @@ const ContactSection = () => {
               send message
             </h3>
 
-            <form className="space-y-6">
+            <form ref={form} onSubmit={sendEmail} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-zinc-400 text-sm mb-2">name</label>
                   <input
                     type="text"
+                    name="user_name"
                     placeholder="Your name"
+                    required
                     className="w-full bg-black border border-zinc-800 text-white placeholder-zinc-500 px-4 py-3 rounded-md focus:outline-none focus:border-green-400 transition"
                   />
                 </div>
@@ -88,17 +114,32 @@ const ContactSection = () => {
                   <label className="block text-zinc-400 text-sm mb-2">email</label>
                   <input
                     type="email"
+                    name="user_email"
                     placeholder="you@example.com"
+                    required
                     className="w-full bg-black border border-zinc-800 text-white placeholder-zinc-500 px-4 py-3 rounded-md focus:outline-none focus:border-green-400 transition"
                   />
                 </div>
               </div>
 
               <div>
+                <label className="block text-zinc-400 text-sm mb-2">subject</label>
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="What's this about?"
+                  required
+                  className="w-full bg-black border border-zinc-800 text-white placeholder-zinc-500 px-4 py-3 rounded-md focus:outline-none focus:border-green-400 transition"
+                />
+              </div>
+
+              <div>
                 <label className="block text-zinc-400 text-sm mb-2">message</label>
                 <textarea
+                  name="message"
                   rows="6"
                   placeholder="Let's build something amazing..."
+                  required
                   className="w-full bg-black border border-zinc-800 text-white placeholder-zinc-500 px-4 py-3 rounded-md focus:outline-none focus:border-green-400 transition resize-none"
                 />
               </div>
