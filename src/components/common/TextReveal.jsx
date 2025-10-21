@@ -118,10 +118,10 @@ const Text = styled.div`
 
   /* Small Mobile */
   @media (max-width: 480px) {
-    font-size: 22px;
+    font-size: 18px;
 
     p {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
   }
 `;

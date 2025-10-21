@@ -45,7 +45,7 @@ const Hero = () => {
 
         {/* Text Content */}
         <div className="text-center md:text-left space-y-3 md:space-y-4 max-w-md md:max-w-none">
-          <h1 className=" desc1 text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight font-[font2] transition-colors duration-300 ">
+          <h1 className=" desc1 text-2xl sm:text-5xl md:text-6xl font-extrabold leading-tight font-[font2] transition-colors duration-300 ">
              From idea to interface  smooth,scalable, and scroll-stopping websites
           </h1>
           <p className=" desc1 text-lg sm:text- xl font-semibold text-gray-300 font-[font2] transition-colors duration-300">
