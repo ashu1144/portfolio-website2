@@ -1,21 +1,25 @@
 import { useState, useEffect } from 'react'
 import { Route , Routes } from 'react-router-dom'
+import { createPortal } from 'react-dom'
 import Navbar from './components/Navigation/Navbar'
-import FullScreenNav from './components/Navigation/FullScreenNav'
+// import FullScreenNav from './components/Navigation/FullScreenNav'
 import About from './pages/About'
-import Lenis from "@studio-freight/lenis"; 
+import Lenis from "@studio-freight/lenis";
 // import TextReveal from './components/common/TextReveal'
 // import './App.css'
 
 function App() {
-  const [navbar, setNavbar] = useState(false)
+  const [showNavbar, setShowNavbar] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.3,      // how smooth (higher = slower)
+      duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,  // enable mouse wheel smoothing
-      smoothTouch: false, // disable touch smoothing (optional)
+      smoothWheel: true,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
     });
 
     function raf(time) {
@@ -28,20 +32,57 @@ function App() {
     return () => lenis.destroy();
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down
+        setShowNavbar(false);
+      } else {
+        // Scrolling up
+        setShowNavbar(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    let ticking = false;
+
+    const updateScroll = () => {
+      handleScroll();
+      ticking = false;
+    };
+
+    const requestTick = () => {
+      if (!ticking) {
+        requestAnimationFrame(updateScroll);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', requestTick, { passive: true });
+
+    return () => window.removeEventListener('scroll', requestTick);
+  }, [lastScrollY]);
+
+  // Render navbar to document body using portal to bypass Stair component
+  const navbarPortal = createPortal(
+    <div className={`fixed w-full top-0 z-[1000] transition-transform duration-300 navbar-fixed ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
+      <Navbar />
+    </div>,
+    document.body
+  );
+
   return (
-    <div className='text-white '>
-      <div className={`${navbar ? "top-0" : "-top-[100vh]"} absolute h-screen  z-10 w-full bg-red-800 transition-all duration-600 overflow-hidden`}>
-        <FullScreenNav />
+    <>
+      {navbarPortal}
+      <div className='text-white '>
+        <Routes>
+          <Route path='/' element={<About />} />
+        </Routes>
       </div>
-      <Navbar setNavbar={setNavbar} navbar={navbar} ></Navbar>
-      <Routes>
-        <Route path='/' element={<About setNavbar={setNavbar} ></About>} ></Route>
-      </Routes>
-
-
-
-      
-    </div>
+    </>
   )
 }
 

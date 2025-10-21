@@ -8,9 +8,11 @@ import { BrowserRouter } from 'react-router-dom'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-    <Stair>
-      <App />
-    </Stair>
+      <div>
+        <Stair>
+          <App />
+        </Stair>
+      </div>
     </BrowserRouter>
   </StrictMode>,
 )
