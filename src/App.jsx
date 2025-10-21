@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Route , Routes } from 'react-router-dom'
 import Navbar from './components/Navigation/Navbar'
-import Home from './pages/Home'
 import FullScreenNav from './components/Navigation/FullScreenNav'
 import About from './pages/About'
-import Projects from './pages/Projects'
 import Lenis from "@studio-freight/lenis"; 
 // import TextReveal from './components/common/TextReveal'
 // import './App.css'
@@ -37,9 +35,7 @@ function App() {
       </div>
       <Navbar setNavbar={setNavbar} navbar={navbar} ></Navbar>
       <Routes>
-        <Route path='/about' element={<Home setNavbar={setNavbar} ></Home>} ></Route>
         <Route path='/' element={<About setNavbar={setNavbar} ></About>} ></Route>
-        <Route path='/projects' element={<Projects></Projects>}></Route>
       </Routes>
 
 

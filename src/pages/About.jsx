@@ -1,46 +1,55 @@
 import React from 'react'
-import myimg from '../assets/myImg.jpg'
 import { Education } from '../components/extra/Education'
 import Skills from '../components/Skills/Skills'
 import ContactSection from '../components/AboutUs/ContactSection'
-import MoveSlider from '../components/common/MoveSlider'
-import TextReveal from '../components/common/TextReveal'
 import Hero from '../components/hero/Hero'
 import Projects from './Projects'
-const About = () => {
-  return (
-    <div id="about" className="">
-      {/* ======= Intro Section ======= */}
-      <Hero></Hero>
-      
-     
+import TextReveal from '../components/common/TextReveal'
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
-      {/* ======= Text Reveal Section ======= */}
-         <TextReveal />
-      {/* ======= Skills Section ======= */}
+gsap.registerPlugin(ScrollTrigger);
+const About = () => {
+  
+  useGSAP(() => {
+
+   ScrollTrigger.batch(".animateLeft", {
+    onEnter: (batch) => {
+    gsap.from(batch, {
+      y: -100,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power1.out"});},
+      start: "center 60%",
+    });
+
+  }, []);
+  
+  return (
+    <div id="about" className="bg-[#0f0f10]">
+      {/* Hero Section */}
+      <Hero />
+
+      {/* Text Reveal Section */}
+      <TextReveal />
+
+      {/* Skills Section */}
       <Skills />
 
-      {/* ======= Move Slider 1 ======= */}
-      <MoveSlider
-        movement="movex"
-        title="Studied Computer Science — learned to craft exceptional user experiences."
-        color="bg-[#D3fd50]"
-      />
+      {/* Projects Section */}
+      <Projects />
 
-      {/* ======= Education Section ======= */}
+      {/* Education Section */}
       <Education />
 
-      <Projects></Projects>
-
-      {/* ======= Move Slider 2 ======= */}
-      <MoveSlider
-        movement="movex"
-        title="Let’s connect and build something impactful"
-        color="bg-[#D3fd50]"
-      />
-
-      {/* ======= Contact Section ======= */}
+      {/* Contact Section */}
       <ContactSection />
+
+      {/*
+        Move Slider 2:
+        Additional move slider can be added here
+      */}
     </div>
   )
 }

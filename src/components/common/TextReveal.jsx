@@ -5,23 +5,16 @@ import styled from "styled-components";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function App() {
-//  start: "top center",
-  //         end: "bottom 40%",
+function TextReveal() {
+  let startPos, endPos;
 
-let startPos, endPos;
-
-if (window.innerWidth <= 768) {
-  // 📱 Mobile
-  startPos = "top top";
-  endPos = "bottom -50";
-} else {
-  // 💻 Tablet / Laptop
-  startPos = "bottom 40%";
-  endPos = "bottom 10%";
-}
-
-
+  if (window.innerWidth <= 768) {
+    startPos = "top top";
+    endPos = "bottom -50";
+  } else {
+    startPos = "center 40%";
+    endPos = "bottom 30%";
+  }
 
   useEffect(() => {
     const matches = document.querySelectorAll(".textRev");
@@ -29,7 +22,7 @@ if (window.innerWidth <= 768) {
     matches.forEach((target) => {
       gsap.to(target, {
         backgroundPositionX: "0%",
-        stagger: 0.8,
+        stagger: 0.3,
         scrollTrigger: {
           trigger: target,
           start: startPos,
@@ -44,110 +37,91 @@ if (window.innerWidth <= 768) {
   return (
     <AppContainer>
       <Container className="main">
-        <Section>Scroll Up</Section>
         <Text>
-            <p className="textRev">I craft full-stack experiences</p>
-            <p className="textRev">that blend design with logic.</p>
-
-            <p className="textRev">With React, I bring ideas</p>
-            <p className="textRev">to life through fast, fluid</p>
-            <p className="textRev">and responsive interfaces.</p>
-
-            <p className="textRev">Behind the scenes, Node.js</p>
-            <p className="textRev">and Express power my servers</p>
-            <p className="textRev">with clean and scalable APIs.</p>
-
-            <p className="textRev">I use MongoDB when flexibility</p>
-            <p className="textRev">matters, and MySQL when structure</p>
-            <p className="textRev">and relations take the lead.</p>
-
-            <p className="textRev">Together, they form the core</p>
-            <p className="textRev">of my development toolkit.</p>
-          </Text>
-
-        <Section>Scroll Up</Section>
+          <p className="textRev">Code transforms vision into reality.</p>
+          <p className="textRev">Design meets function in perfect harmony.</p>
+          <p className="textRev">Innovation drives every pixel and line.</p>
+          <p className="textRev">Users experience seamless digital journeys.</p>
+          <p className="textRev">Performance meets aesthetic excellence.</p>
+        </Text>
       </Container>
     </AppContainer>
   );
 }
 
-export default App;
+export default TextReveal;
 
 // ====================== Styled Components ======================
 
 const AppContainer = styled.div`
   width: 100%;
-  height: 100%;
-  background: #111;
+  min-height: 60vh;
+  background: #000000;
   color: white;
-  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+
+  @media (max-width: 768px) {
+    padding: 40px 0;
+    min-height: 50vh;
+  }
 `;
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
-  flex-direction: column;
-`;
-
-const Section = styled.section`
-  min-height: 5vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-  font-weight: 600;
-  color: #fff;
+  max-width: 1000px;
+  padding: 0 40px;
 
   @media (max-width: 768px) {
-    font-size: 20px;
+    padding: 0 20px;
   }
 `;
 
 const Text = styled.div`
-  font-size: 70px;
-  font-weight: 600;
-  padding: 70px 0;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.6;
+  font-family: 'font2', monospace;
+  text-align: center;
 
   p {
-    background: linear-gradient(to right, #ffffff 50%, #252525 50%);
+    background: linear-gradient(to right, #ffffff 50%, #1a1a1a 50%);
     background-size: 200% 100%;
     background-position-x: 100%;
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
-    margin-left: 50px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     user-select: none;
-    line-height: 1.1;
+    letter-spacing: -0.02em;
   }
 
   /* Tablet */
   @media (max-width: 1024px) {
-    font-size: 50px;
+    font-size: 36px;
 
     p {
-      margin-left: 30px;
+      margin-bottom: 14px;
     }
   }
 
   /* Mobile */
   @media (max-width: 768px) {
-    font-size: 36px;
+    font-size: 28px;
 
     p {
-      margin-left: 20px;
-      margin-top: 16px;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
   }
 
   /* Small Mobile */
   @media (max-width: 480px) {
-    font-size: 25px;
+    font-size: 22px;
 
     p {
-      margin-left: 15px;
+      margin-bottom: 10px;
     }
   }
 `;

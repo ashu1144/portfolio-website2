@@ -4,109 +4,109 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const ContactSection = () => {
   return (
-    <section className="bg-black min-h-screen px-4 md:px-0 py-20">
-      <div className="max-w-7xl mx-auto">
-        {/* Title Section */}
-        <div className="mb-12">
-          <h1 className="text-[10vw] max-sm:text-[15vw] font-[font2] leading-[10vw] px-5 max-sm:px-2 capitalize text-white mb-4">
-            contact
-          </h1>
-          <div className="w-full h-1 bg-white mb-8"></div>
-          <div className="text-end py-4 px-4 max-sm:py-2">
-            <h2 className="text-[3vw] max-sm:text-[4vw] font-[font2] leading-[3vw] max-sm:leading-[4vw] text-white">
-              LET'S BUILD SOMETHING TOGETHER
-            </h2>
-            <h2 className="text-[3vw] max-sm:text-[4vw] font-[font2] leading-[3vw] max-sm:leading-[4vw] text-white">
-              READY TO TURN IDEAS INTO CODE
-            </h2>
-          </div>
+    <section className="bg-black min-h-screen text-white py-20 px-4">
+      <div className="max-w-[90vw] m-auto">
+
+        {/* Header */}
+        <div className="mb-16 text-left px-4 sm:px-6 space-y-3 animateLeft">
+          <p className="text-gray-400 text-lg sm:text-xl">Get In Touch</p>
+
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-[font2] font-semibold text-zinc-400">
+            Let's <span className="text-green-400">Connect</span>
+          </h2>
+
+          <p className="text-gray-400 text-lg sm:text-xl max-w-3xl">
+            Ready to turn your ideas into exceptional digital experiences.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 px-5">
-          {/* Left Column - Contact Info */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Info */}
           <div className="space-y-8">
-            <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
-              <h3 className="text-xl font-[font2] text-white uppercase tracking-wider mb-6 border-b border-zinc-800 pb-4">
-                Get In Touch
+            <div className="bg-[#0a0a0a] border border-zinc-800 rounded-lg p-6">
+              <h3 className="text-2xl font-[font2] text-white uppercase border-b border-zinc-800 pb-4 mb-6">
+                get in touch
               </h3>
 
               <div className="space-y-6">
-                <div className="flex items-center gap-4 p-4 bg-black/50 border border-zinc-800 rounded-md hover:border-zinc-600 transition-colors duration-300">
+                {/* Email */}
+                <div className="flex items-center gap-4 p-4 bg-black border border-zinc-800 rounded-md hover:border-green-400 transition">
                   <div className="w-10 h-10 bg-white rounded-md flex items-center justify-center">
                     <FiMail className="text-black text-lg" />
                   </div>
                   <div>
-                    <div className="text-zinc-400 text-sm font-mono">email</div>
-                    <div className="text-white font-medium">yourmail@example.com</div>
+                    <div className="text-zinc-400 text-sm">email</div>
+                    <div className="text-white font-semibold">yourmail@example.com</div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 bg-black/50 border border-zinc-800 rounded-md hover:border-zinc-600 transition-colors duration-300">
+                {/* Location */}
+                <div className="flex items-center gap-4 p-4 bg-black border border-zinc-800 rounded-md hover:border-green-400 transition">
                   <div className="w-10 h-10 bg-white rounded-md flex items-center justify-center">
                     <FiMapPin className="text-black text-lg" />
                   </div>
                   <div>
-                    <div className="text-zinc-400 text-sm font-mono">location</div>
-                    <div className="text-white font-medium">Hyderabad, India</div>
+                    <div className="text-zinc-400 text-sm">location</div>
+                    <div className="text-white font-semibold">Hyderabad, India</div>
                   </div>
                 </div>
               </div>
 
-              {/* Terminal-like status */}
+              {/* Terminal Status */}
               <div className="mt-8 bg-black border border-zinc-800 rounded-lg p-4">
                 <div className="flex items-center gap-2 mb-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-zinc-400 text-xs font-mono">status: available</span>
+                  <div className="w-2 h-2 bg-green-500 rounded-full" />
+                  <span className="text-zinc-400 text-xs">status: available</span>
                 </div>
-                <div className="font-mono text-xs text-zinc-300">
+                <div className="text-sm text-zinc-300 space-y-1">
                   <div className="text-green-400">$ availability --check</div>
                   <div className="ml-4 text-white">Open for new opportunities</div>
-                  <div className="text-green-400 mt-1">$ response_time</div>
-                  <div className="ml-4 text-zinc-400">Usually within 24 hours</div>
+                  <div className="text-green-400">$ response_time</div>
+                  <div className="ml-4 text-zinc-400">Typically replies within 24 hours</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Contact Form */}
-          <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
-            <h3 className="text-xl font-[font2] text-white uppercase tracking-wider mb-6 border-b border-zinc-800 pb-4">
-              Send Message
+          {/* Contact Form */}
+          <div className="bg-[#0a0a0a] border border-zinc-800 rounded-lg p-6">
+            <h3 className="text-2xl font-[font2] text-white uppercase border-b border-zinc-800 pb-4 mb-6">
+              send message
             </h3>
 
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-zinc-400 text-sm font-mono mb-2">name</label>
+                  <label className="block text-zinc-400 text-sm mb-2">name</label>
                   <input
                     type="text"
                     placeholder="Your name"
-                    className="w-full bg-black border border-zinc-800 text-white placeholder-zinc-500 px-4 py-3 rounded-md focus:outline-none focus:border-white transition-colors duration-300 font-mono text-sm"
+                    className="w-full bg-black border border-zinc-800 text-white placeholder-zinc-500 px-4 py-3 rounded-md focus:outline-none focus:border-green-400 transition"
                   />
                 </div>
                 <div>
-                  <label className="block text-zinc-400 text-sm font-mono mb-2">email</label>
+                  <label className="block text-zinc-400 text-sm mb-2">email</label>
                   <input
                     type="email"
-                    placeholder="your@email.com"
-                    className="w-full bg-black border border-zinc-800 text-white placeholder-zinc-500 px-4 py-3 rounded-md focus:outline-none focus:border-white transition-colors duration-300 font-mono text-sm"
+                    placeholder="you@example.com"
+                    className="w-full bg-black border border-zinc-800 text-white placeholder-zinc-500 px-4 py-3 rounded-md focus:outline-none focus:border-green-400 transition"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-zinc-400 text-sm font-mono mb-2">message</label>
+                <label className="block text-zinc-400 text-sm mb-2">message</label>
                 <textarea
                   rows="6"
-                  placeholder="Let's discuss your project..."
-                  className="w-full bg-black border border-zinc-800 text-white placeholder-zinc-500 px-4 py-3 rounded-md focus:outline-none focus:border-white transition-colors duration-300 font-mono text-sm resize-none"
+                  placeholder="Let's build something amazing..."
+                  className="w-full bg-black border border-zinc-800 text-white placeholder-zinc-500 px-4 py-3 rounded-md focus:outline-none focus:border-green-400 transition resize-none"
                 />
               </div>
 
               <div className="flex justify-end">
                 <button
                   type="submit"
-                  className="group flex items-center gap-3 bg-white text-black px-6 py-3 rounded-md font-medium hover:bg-zinc-200 transition-colors duration-300"
+                  className="group flex items-center gap-3 bg-green-400 text-black px-6 py-3 rounded-md font-semibold hover:bg-green-300 transition"
                 >
                   <span>Send Message</span>
                   <FiSend className="text-sm group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
@@ -116,30 +116,33 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* Bottom Terminal Section */}
-        <div className="mt-16 px-5">
-          <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+        {/* Terminal Footer */}
+        <div className="mt-16">
+          <div className="bg-black border border-zinc-800 rounded-lg p-6">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-3 h-3 bg-red-500 rounded-full"></div>
               <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
               <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span className="ml-4 text-zinc-400 text-sm font-mono">contact.terminal</span>
+              <span className="ml-4 text-zinc-400 text-sm">contact.terminal</span>
             </div>
-            <div className="font-mono text-sm text-zinc-300">
+
+            <div className="text-sm text-zinc-300 font-mono">
               <div className="text-green-400">$ connect --with-me</div>
-              <div className="ml-4 text-white">Establishing connection...</div>
+              <div className="ml-4 text-white">Establishing secure connection...</div>
               <div className="text-green-400 mt-2">$ collaboration --mode</div>
-              <div className="ml-4 text-zinc-400">Ready to collaborate on your next project</div>
+              <div className="ml-4 text-zinc-400">Open for freelance or full-time roles</div>
               <div className="text-green-400 mt-2">$ echo "Let's build something amazing"</div>
-              <div className="ml-4 text-white">Let's build something amazing <span className="animate-pulse">|</span></div>
+              <div className="ml-4 text-white">
+                Let's build something amazing <span className="animate-pulse">|</span>
+              </div>
 
               {/* Social Icons */}
-              <div className="mt-4 flex gap-5">
+              <div className="mt-5 flex gap-6">
                 <a
                   href="https://github.com/ashu1144"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white hover:text-green-400 text-xl transition-colors scale-150"
+                  className="text-white hover:text-green-400 text-xl transition scale-150"
                 >
                   <FaGithub />
                 </a>
@@ -147,7 +150,7 @@ const ContactSection = () => {
                   href="https://www.linkedin.com/in/shaik-mohammad-ashan-b7a864322/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white hover:text-blue-500 text-xl transition-colors scale-150"
+                  className="text-white hover:text-blue-400 text-xl transition scale-150"
                 >
                   <FaLinkedin />
                 </a>
