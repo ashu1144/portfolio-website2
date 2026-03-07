@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRef } from 'react'
+import Time from '../Time'
 const Navbar = () => {
   const navGreenRef = useRef(null)
   return (
@@ -8,15 +9,13 @@ const Navbar = () => {
       <div className=' max-w-[90vw] m-auto flex justify-between items-start'>
        
           <div className='w-20'>
-            <h className = "text-4xl text-white">Ashan</h>
+            <h1 className = "text-4xl text-white">Ashan</h1>
           </div>
 
-          <div className=' p-3 rounded-full  bg-zinc-600  flex items-center justify-center cursor-pointer'>
+          <div className=' p-3 rounded-full text-white  bg-zinc-600  flex items-center justify-center cursor-pointer'>
             <div className='flex flex-col justify-center items-end gap-1.5'>
 
-            <div className='h-0.5 w-5 max-sm:w-5 bg-white'></div>
-            <div className='h-0.5 w-5 bg-white'></div>
-            <div className='h-0.5 w-5 bg-white'></div>
+              <Time/>
 
           </div>
           

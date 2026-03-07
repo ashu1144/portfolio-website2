@@ -1,6 +1,6 @@
 import React from 'react'
 import myimg from '../../assets/myImg.jpg'
-import { useGSAP } from "@gsap/react";  // <-- import like this
+import { useGSAP } from "@gsap/react";  
 import { gsap } from "gsap";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
@@ -11,7 +11,7 @@ const Hero = () => {
 
   tl.fromTo(
   ".Proimg",
-  { scale: 0.1, opacity: 0 }, // initial state
+  { scale: 0.1, opacity: 0 }, 
   { scale: 1, opacity: 1, delay: 1.2, duration: 0.6, ease: "power1.out" });
   tl.from('.desc1', {
     x:100,
@@ -21,7 +21,7 @@ const Hero = () => {
   },);
   tl.fromTo(
   ".btn",
-  { scale: 0.1, opacity: 0 }, // initial state
+  { scale: 0.1, opacity: 0 }, 
   { scale: 1, opacity: 1, duration: 0.3, ease: "power1.out", stagger:-0.5 });
 
 
@@ -39,7 +39,7 @@ const Hero = () => {
           <img
             src={myimg}
             alt="Profile"
-            className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+            className="w-full h-full scale-100 object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
           />
         </div>
 
@@ -54,16 +54,16 @@ const Hero = () => {
 
           {/* Buttons and Icons */}
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mt-4">
-            <button className=" btn bg-white text-black px-5 py-2 rounded-full font-semibold hover:bg-gray-200 active:scale-95 transition-transform duration-200">
+            <a href="mailto:shaikmohammadashan@gmail.com?subject=Website Inquiry" className=" btn bg-white text-black px-5 py-2 rounded-full font-semibold hover:bg-gray-200 active:scale-95 transition-transform duration-200">
               LET'S CONNECT
-            </button>
+            </a>
 
             {/* GitHub Icon */}
             <a
               href="https://github.com/yourusername"
               target="_blank"
               rel="noopener noreferrer"
-              className=" btn text-2xl hover:text-gray-400 transition-colors duration-200"
+              className=" btn text-2xl hover:text-gray-400 transition-colors duration-200 animate-bounce"
             >
               <FaGithub />
             </a>
@@ -73,7 +73,7 @@ const Hero = () => {
               href="https://linkedin.com/in/yourusername"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn text-2xl hover:text-blue-400 transition-colors duration-200"
+              className="btn text-2xl hover:text-blue-400 transition-colors duration-200 animate-bounce"
             >
               <FaLinkedin />
             </a>
@@ -81,10 +81,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Down */}
-      <div className="absolute bottom-6 text-gray-400 text-sm animate-bounce">
-        ↓ Scroll Down
-      </div>
+      
     </section>
   )
 }

@@ -6,6 +6,13 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 const ContactSection = () => {
   const form = useRef();
 
+  function handelCopy(e){
+    alert("copied")
+    window.navigator.clipboard.writeText(e.target.innerText)
+    
+
+  }
+
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -60,7 +67,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="text-zinc-400 text-sm">email</div>
-                    <div className="text-white font-semibold">yourmail@example.com</div>
+                    <div onClick={handelCopy} className="text-white font-semibold">shaikmohammadashan@gmail.com</div>
                   </div>
                 </div>
 
@@ -71,7 +78,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="text-zinc-400 text-sm">location</div>
-                    <div className="text-white font-semibold">Hyderabad, India</div>
+                    <div className="text-white font-semibold">Bengaluru,India</div>
                   </div>
                 </div>
               </div>
