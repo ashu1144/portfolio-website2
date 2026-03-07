@@ -13,7 +13,9 @@ function Time() {
 
   return (
     <div>
-      <h2>{time.toLocaleTimeString()}</h2>
+      <h2>
+        {time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+      </h2>
     </div>
   );
 }
