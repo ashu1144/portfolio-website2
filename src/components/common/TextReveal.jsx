@@ -28,7 +28,7 @@ function TextReveal() {
           start: startPos,
           end: endPos,
           scrub: true,
-          markers: true,
+          // markers: true,
         },
       });
     });
