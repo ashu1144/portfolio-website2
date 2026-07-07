@@ -10,7 +10,7 @@ function TextReveal() {
 
   if (window.innerWidth <= 768) {
     startPos = "top top";
-    endPos = "bottom -50";
+    endPos = "bottom -10";
   } else {
     startPos = "center 40%";
     endPos = "bottom 30%";
@@ -28,7 +28,7 @@ function TextReveal() {
           start: startPos,
           end: endPos,
           scrub: true,
-          // markers: true,
+          markers: true,
         },
       });
     });
